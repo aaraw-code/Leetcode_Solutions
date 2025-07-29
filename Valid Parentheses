@@ -1,0 +1,24 @@
+
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        char = {
+            "(" : ")",
+            "{" : "}",
+            "[" : "]"
+        }
+
+        stack = []
+
+        for c in s:
+            if c in char:
+                stack.append(c)
+            else:
+                if  not  stack:
+                    return False
+            
+                top = stack.pop()
+                if char[top] != c:
+                    return False
+        return not stack
+        
